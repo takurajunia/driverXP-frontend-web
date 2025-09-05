@@ -5,7 +5,8 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "types": ["@types/google.maps"]
-    // ... other options
+    "types": ["@types/google.maps"],
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   }
 }
