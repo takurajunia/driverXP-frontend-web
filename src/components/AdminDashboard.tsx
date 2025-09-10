@@ -168,37 +168,39 @@ const AdminDashboard: React.FC = () => {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex space-x-1 mb-8 bg-gray-100 p-1 rounded-xl">
-        {[
-          { id: "overview", label: "Overview", icon: FaChartLine },
-          { id: "users", label: "Users", icon: FaUsers },
-          { id: "bookings", label: "Bookings", icon: FaCalendarAlt },
-          { id: "cars", label: "Vehicles", icon: FaCar },
-        ].map((tab) => {
-          const Icon = tab.icon;
-          return (
-            <button
-              key={tab.id}
-              onClick={() => setSelectedTab(tab.id as any)}
-              className={`flex-1 flex items-center justify-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all ${
-                selectedTab === tab.id
-                  ? "bg-white text-blue-600 shadow-md"
-                  : "text-gray-600 hover:text-gray-900"
-              }`}
-            >
-              <Icon />
-              <span>{tab.label}</span>
-            </button>
-          );
-        })}
-        {/* Add Analytics as a separate button */}
-        <button
-          onClick={() => (window.location.href = "/analytics")}
-          className="flex-1 flex items-center justify-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all bg-purple-100 text-purple-700 hover:bg-purple-200"
-        >
-          <FaChartBar />
-          <span>Analytics</span>
-        </button>
+      <div className="mb-8 bg-gray-100 p-1 rounded-xl overflow-x-auto">
+        <div className="flex space-x-1 min-w-max">
+          {[
+            { id: "overview", label: "Overview", icon: FaChartLine },
+            { id: "users", label: "Users", icon: FaUsers },
+            { id: "bookings", label: "Bookings", icon: FaCalendarAlt },
+            { id: "cars", label: "Vehicles", icon: FaCar },
+          ].map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setSelectedTab(tab.id as any)}
+                className={`flex items-center justify-center space-x-2 px-3 md:px-4 py-3 rounded-lg font-medium transition-all whitespace-nowrap ${
+                  selectedTab === tab.id
+                    ? "bg-white text-blue-600 shadow-md"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                <Icon />
+                <span className="hidden sm:inline">{tab.label}</span>
+              </button>
+            );
+          })}
+          {/* Add Analytics as a separate button */}
+          <button
+            onClick={() => (window.location.href = "/analytics")}
+            className="flex items-center justify-center space-x-2 px-3 md:px-4 py-3 rounded-lg font-medium transition-all bg-purple-100 text-purple-700 hover:bg-purple-200 whitespace-nowrap"
+          >
+            <FaChartBar />
+            <span className="hidden sm:inline">Analytics</span>
+          </button>
+        </div>
       </div>
 
       {/* Overview Tab */}

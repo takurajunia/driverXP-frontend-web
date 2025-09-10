@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { usersAPI } from "../services/api";
 import UserFormModal from "../components/UserFormModal";
+import Layout from "../components/layout/Layout";
 import type { User } from "../types";
 import {
   FaUsers,
@@ -133,14 +134,16 @@ const UsersPage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
+      <Layout>
+        <div className="flex justify-center items-center h-64">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        </div>
+      </Layout>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <Layout>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -393,7 +396,7 @@ const UsersPage: React.FC = () => {
           editingUser={editingUser}
         />
       </div>
-    </div>
+    </Layout>
   );
 };
 
