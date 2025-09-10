@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/layout/Footer";
 import {
   Calendar,
   Clock,
@@ -15,10 +14,27 @@ import {
   Star,
   CheckCircle,
   Car,
+  MessageCircle,
+  X,
 } from "lucide-react";
+import Footer from "../components/layout/Footer";
 
 export default function LandingPage() {
   const navigate = useNavigate();
+  const [showContactModal, setShowContactModal] = useState(false);
+
+  const whatsappNumber = "27715095239";
+  const enrollMessage =
+    "Hello! I'm interested in joining Sydney Driving School. Please tell me more about the enrollment.";
+  const questionMessage = "Hello! I have a few questions about DriverXP.";
+
+  const openWhatsApp = (message: string) => {
+    const encodedMessage = encodeURIComponent(message);
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
+      "_blank"
+    );
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -41,17 +57,25 @@ export default function LandingPage() {
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#booking" className="text-gray-700 hover:text-blue-600">
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/login");
+                }}
+                className="text-gray-700 hover:text-blue-600"
+              >
                 Book Lesson
               </a>
-              <a href="#about" className="text-gray-700 hover:text-blue-600">
-                About Us
-              </a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-600">
-                Contact
-              </a>
-              <a href="#feedback" className="text-gray-700 hover:text-blue-600">
-                Feedback
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  openWhatsApp(enrollMessage);
+                }}
+                className="text-gray-700 hover:text-blue-600"
+              >
+                Contact Us
               </a>
               <button
                 onClick={() => navigate("/login")}
@@ -85,7 +109,7 @@ export default function LandingPage() {
               <h1 className="text-4xl lg:text-5xl font-bold text-cyan-500 mb-6">
                 DriverXP
               </h1>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-base md:text-lg text-gray-600 mb-8">
                 Book driving lessons with ease using our innovative platform.
                 Flexible scheduling, professional instructors, and real-time
                 updates - all at your fingertips.
@@ -96,26 +120,32 @@ export default function LandingPage() {
                   <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                     <CheckCircle className="h-5 w-5 text-green-600" />
                   </div>
-                  <span className="text-gray-700">Easy Booking</span>
+                  <span className="text-sm md:text-base text-gray-700">
+                    Easy Booking
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
                     <Clock className="h-5 w-5 text-yellow-600" />
                   </div>
-                  <span className="text-gray-700">Flexible Times</span>
+                  <span className="text-sm md:text-base text-gray-700">
+                    Flexible Times
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
                     <Bell className="h-5 w-5 text-orange-600" />
                   </div>
-                  <span className="text-gray-700">Smart Reminders</span>
+                  <span className="text-sm md:text-base text-gray-700">
+                    Smart Reminders
+                  </span>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => navigate("/login")}
-                  className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2"
+                  className="px-6 md:px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2 text-sm md:text-base"
                 >
                   <Calendar className="h-5 w-5" />
                   Book Your First Lesson
@@ -126,7 +156,7 @@ export default function LandingPage() {
                       .getElementById("about")
                       ?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="px-8 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition flex items-center justify-center gap-2"
+                  className="px-6 md:px-8 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition flex items-center justify-center gap-2 text-sm md:text-base"
                 >
                   Learn More
                   <ChevronRight className="h-5 w-5" />
@@ -153,7 +183,7 @@ export default function LandingPage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Why Choose <span className="text-blue-600">DriverXP</span>?
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Our innovative platform makes learning to drive easier, more
               convenient, and more effective than traditional methods.
             </p>
@@ -215,12 +245,17 @@ export default function LandingPage() {
                     className={`h-6 w-6 text-${feature.color}-600`}
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 mb-4">{feature.description}</p>
-                <button className="text-blue-600 hover:text-blue-700 flex items-center gap-1">
-                  Learn More <ChevronRight className="h-4 w-4" />
+                <p className="text-sm md:text-base text-gray-600 mb-4">
+                  {feature.description}
+                </p>
+                <button
+                  onClick={() => openWhatsApp(enrollMessage)}
+                  className="text-blue-600 hover:text-blue-700 flex items-center gap-1 text-sm md:text-base"
+                >
+                  Join Now <ChevronRight className="h-4 w-4" />
                 </button>
               </div>
             ))}
@@ -235,7 +270,7 @@ export default function LandingPage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               How <span className="text-blue-600">DriverXP</span> Works
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
               Getting started is easy! Follow these simple steps to book your
               first driving lesson and begin your journey to becoming a
               confident driver.
@@ -287,10 +322,12 @@ export default function LandingPage() {
                     {item.step}
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2">
                   {item.title}
                 </h3>
-                <p className="text-gray-600">{item.description}</p>
+                <p className="text-sm md:text-base text-gray-600">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -298,12 +335,15 @@ export default function LandingPage() {
           <div className="text-center">
             <button
               onClick={() => navigate("/login")}
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition inline-flex items-center gap-2"
+              className="px-6 md:px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition inline-flex items-center gap-2 text-sm md:text-base"
             >
               <ChevronRight className="h-5 w-5" />
               Start Your Journey
             </button>
-            <button className="ml-4 px-8 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition">
+            <button
+              onClick={() => openWhatsApp(questionMessage)}
+              className="ml-4 px-6 md:px-8 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition text-sm md:text-base"
+            >
               Have Questions?
             </button>
           </div>
@@ -313,29 +353,28 @@ export default function LandingPage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
             Ready to Start Your{" "}
             <span className="text-yellow-400">Driving Journey?</span>
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-lg md:text-xl text-blue-100 mb-8">
             Join thousands of successful drivers who chose DriverXP. Book your
             first lesson today and experience the difference of modern,
             convenient driving education.
           </p>
 
-          <div className="bg-orange-500 text-white px-6 py-2 rounded-full inline-block mb-8">
-            🔥 Limited Time: No booking fees this month!
-          </div>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <button
               onClick={() => navigate("/login")}
-              className="px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition flex items-center justify-center gap-2"
+              className="px-6 md:px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition flex items-center justify-center gap-2 text-sm md:text-base"
             >
               <Calendar className="h-5 w-5" />
               Book Your First Lesson
             </button>
-            <button className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white hover:text-blue-600 transition flex items-center justify-center gap-2">
+            <button
+              onClick={() => setShowContactModal(true)}
+              className="px-6 md:px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white hover:text-blue-600 transition flex items-center justify-center gap-2 text-sm md:text-base"
+            >
               <Phone className="h-5 w-5" />
               Call Us Now
             </button>
@@ -344,21 +383,62 @@ export default function LandingPage() {
           <div className="flex flex-wrap justify-center gap-8 text-white">
             <div className="flex items-center gap-2">
               <Star className="h-5 w-5 text-yellow-400" />
-              <span>4.9/5 Rating</span>
+              <span className="text-sm md:text-base">4.9/5 Rating</span>
             </div>
             <div className="flex items-center gap-2">
               <Users className="h-5 w-5 text-yellow-400" />
-              <span>5,000+ Happy Students</span>
+              <span className="text-sm md:text-base">
+                5,000+ Happy Students
+              </span>
             </div>
             <div className="flex items-center gap-2">
               <Award className="h-5 w-5 text-yellow-400" />
-              <span>Fully Licensed & Insured</span>
+              <span className="text-sm md:text-base">
+                Fully Licensed & Insured
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl p-6 max-w-sm w-full">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-bold text-gray-900">Contact Us</h3>
+              <button onClick={() => setShowContactModal(false)}>
+                <X className="h-6 w-6 text-gray-500" />
+              </button>
+            </div>
+            <p className="text-gray-600 mb-6">Get in touch with us via:</p>
+            <div className="space-y-3">
+              <a
+                href="tel:+27715095239"
+                className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition"
+              >
+                <Phone className="h-5 w-5 text-blue-600" />
+                <span className="text-gray-900 font-medium">
+                  Call: +27 71 509 5239
+                </span>
+              </a>
+              <button
+                onClick={() => {
+                  openWhatsApp(enrollMessage);
+                  setShowContactModal(false);
+                }}
+                className="w-full flex items-center gap-3 p-3 bg-green-50 rounded-lg hover:bg-green-100 transition"
+              >
+                <MessageCircle className="h-5 w-5 text-green-600" />
+                <span className="text-gray-900 font-medium">
+                  WhatsApp: +27 71 509 5239
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   );
