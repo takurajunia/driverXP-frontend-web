@@ -50,7 +50,9 @@ const Navigation: React.FC = () => {
                   <FaCar className="text-white text-xl" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900">DriverXP</h1>
+                  <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-teal-400 text-xl font-bold">
+                    DriverXP
+                  </h1>
                   <p className="text-xs text-gray-500">Sydney Driving School</p>
                 </div>
               </div>
