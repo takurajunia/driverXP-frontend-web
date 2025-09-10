@@ -281,9 +281,9 @@ export default function LandingPage() {
             {[
               {
                 step: "1",
-                title: "Create Account",
+                title: "Request Account",
                 description:
-                  "Sign up for your free DriverXP account with just your basic information. It takes less than 2 minutes!",
+                  "Enroll into Sydney Driving School, and request your free DriverXP account with just your basic information via WhatsApp. It's very easy to complete this enrollment process!",
                 icon: Users,
               },
               {
