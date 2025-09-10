@@ -45,11 +45,11 @@ const LoginPage: React.FC = () => {
               alt="Sydney Driving School"
               className="w-64 mx-auto mb-4"
             />
-            <p className="text-sm text-gray-500">
-              Powered by
-              <br />
+            <p className="text-sm text-gray-500">Powered by</p>
+            <p className="text-base font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-teal-400">
               DriverXP
             </p>
+
             <p className="text-sm text-gray-500">Sign in to your account</p>
           </div>
 

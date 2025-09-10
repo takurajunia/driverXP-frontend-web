@@ -18,6 +18,7 @@ import {
   X,
 } from "lucide-react";
 import Footer from "../components/layout/Footer";
+import logo from "../assets/full logo.jpg";
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -44,14 +45,8 @@ export default function LandingPage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
-                  <Car className="h-6 w-6 text-white" />
-                </div>
-                <div className="ml-3">
-                  <div className="text-xl font-bold text-gray-900">SYDNEY</div>
-                  <div className="text-sm text-gray-600 -mt-1">
-                    DRIVING SCHOOL
-                  </div>
+                <div>
+                  <img src={logo} alt="DriverXP Logo" className="w-30 h-10" />
                 </div>
               </div>
             </div>
