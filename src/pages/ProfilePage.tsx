@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout/Layout";
+import PasswordChange from "../components/PasswordChange";
 import { useAuth } from "../context/AuthContext";
 import { authAPI } from "../services/api";
 import {
@@ -395,6 +396,10 @@ const ProfilePage: React.FC = () => {
               </div>
             )}
           </form>
+        </div>
+
+        <div className="mt-8">
+          <PasswordChange />
         </div>
       </div>
     </Layout>

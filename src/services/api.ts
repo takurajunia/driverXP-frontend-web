@@ -95,6 +95,12 @@ export const authAPI = {
     userData: Partial<User>
   ): Promise<AxiosResponse<ApiResponse<{ user: User }>>> =>
     api.patch("/auth/me", userData),
+
+  changePassword: (passwordData: {
+    currentPassword: string;
+    newPassword: string;
+  }): Promise<AxiosResponse<ApiResponse<{ message: string }>>> =>
+    api.post("/users/change-password", passwordData),
 };
 
 // Users API
@@ -138,6 +144,9 @@ export const usersAPI = {
 
   getUserStats: (): Promise<AxiosResponse<ApiResponse<{ stats: any }>>> =>
     api.get("/users/stats"),
+
+  changePassword: (data: { currentPassword: string; newPassword: string }) =>
+    api.post("/users/change-password", data),
 };
 
 // Bookings API
