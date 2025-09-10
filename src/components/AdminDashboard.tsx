@@ -181,24 +181,24 @@ const AdminDashboard: React.FC = () => {
               <button
                 key={tab.id}
                 onClick={() => setSelectedTab(tab.id as any)}
-                className={`flex items-center justify-center space-x-2 px-3 md:px-4 py-3 rounded-lg font-medium transition-all whitespace-nowrap ${
+                className={`flex items-center justify-center space-x-2 px-3 py-3 rounded-lg font-medium transition-all whitespace-nowrap ${
                   selectedTab === tab.id
                     ? "bg-white text-blue-600 shadow-md"
                     : "text-gray-600 hover:text-gray-900"
                 }`}
               >
-                <Icon />
-                <span className="hidden sm:inline">{tab.label}</span>
+                <Icon className="text-sm md:text-base" />
+                <span className="text-sm md:text-base">{tab.label}</span>
               </button>
             );
           })}
           {/* Add Analytics as a separate button */}
           <button
             onClick={() => (window.location.href = "/analytics")}
-            className="flex items-center justify-center space-x-2 px-3 md:px-4 py-3 rounded-lg font-medium transition-all bg-purple-100 text-purple-700 hover:bg-purple-200 whitespace-nowrap"
+            className="flex items-center justify-center space-x-2 px-3 py-3 rounded-lg font-medium transition-all bg-purple-100 text-purple-700 hover:bg-purple-200 whitespace-nowrap"
           >
-            <FaChartBar />
-            <span className="hidden sm:inline">Analytics</span>
+            <FaChartBar className="text-sm md:text-base" />
+            <span className="text-sm md:text-base">Analytics</span>
           </button>
         </div>
       </div>
