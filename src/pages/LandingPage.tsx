@@ -28,12 +28,10 @@ import logo from "../assets/full logo.jpg";
 
 export default function LandingPage() {
   const navigate = useNavigate();
-  const [showContactModal, setShowContactModal] = useState(false);
 
   const whatsappNumber = "27715095239";
   const enrollMessage =
     "Hello! I'm interested in joining Sydney Driving School. Please tell me more about the enrollment.";
-  const questionMessage = "Hello! I have a few questions about DriverXP.";
 
   const openWhatsApp = (message: string) => {
     const encodedMessage = encodeURIComponent(message);
@@ -44,7 +42,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-inter">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,29 +54,33 @@ export default function LandingPage() {
             <div className="hidden md:flex items-center space-x-8">
               <a
                 href="#features"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
               >
                 Features
               </a>
               <a
                 href="#how-it-works"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
               >
                 How It Works
               </a>
               <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  openWhatsApp(enrollMessage);
-                }}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                href="#contact"
+                onClick={() => navigate("/contact")}
+                className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
               >
                 Contact
               </a>
               <button
+                onClick={() => openWhatsApp(enrollMessage)}
+                className="px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors flex items-center font-semibold"
+              >
+                <MessageCircle className="w-4 h-4 mr-2" />
+                WhatsApp
+              </button>
+              <button
                 onClick={() => navigate("/login")}
-                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-semibold"
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-bold"
               >
                 Get Started
               </button>
@@ -87,8 +89,14 @@ export default function LandingPage() {
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
+                onClick={() => openWhatsApp(enrollMessage)}
+                className="px-3 py-2 bg-green-500 text-white rounded-full text-sm font-semibold mr-2"
+              >
+                <MessageCircle className="w-4 h-4" />
+              </button>
+              <button
                 onClick={() => navigate("/login")}
-                className="px-4 py-2 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-full text-sm font-semibold"
+                className="px-4 py-2 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-full text-sm font-bold"
               >
                 Login
               </button>
@@ -113,7 +121,7 @@ export default function LandingPage() {
                 South Africa's Most Advanced Driving Platform
               </div>
               
-              <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-5xl lg:text-7xl font-black text-gray-900 mb-6 leading-tight tracking-tight">
                 Master the
                 <span className="block bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">
                   Road with
@@ -121,7 +129,7 @@ export default function LandingPage() {
                 <span className="block text-blue-600">DriverXP</span>
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl font-medium">
                 Experience the future of driving education with our revolutionary platform. 
                 Smart scheduling, expert instructors, and personalized learning paths - all designed 
                 to get you road-ready faster than ever.
@@ -130,7 +138,7 @@ export default function LandingPage() {
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <button
                   onClick={() => navigate("/login")}
-                  className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold text-lg flex items-center justify-center"
+                  className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold text-lg flex items-center justify-center"
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   Start Learning Today
@@ -142,7 +150,7 @@ export default function LandingPage() {
                       .getElementById("features")
                       ?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="group px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-full hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-semibold text-lg flex items-center justify-center"
+                  className="group px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-full hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-bold text-lg flex items-center justify-center"
                 >
                   <Play className="w-5 h-5 mr-2" />
                   Watch Demo
@@ -152,16 +160,16 @@ export default function LandingPage() {
               {/* Trust Indicators */}
               <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">5,000+</div>
-                  <div className="text-sm text-gray-600">Happy Students</div>
+                  <div className="text-3xl font-black text-blue-600 mb-1">5,000+</div>
+                  <div className="text-sm text-gray-600 font-medium">Happy Students</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-red-600 mb-1">4.9★</div>
-                  <div className="text-sm text-gray-600">Average Rating</div>
+                  <div className="text-3xl font-black text-red-600 mb-1">4.9★</div>
+                  <div className="text-sm text-gray-600 font-medium">Average Rating</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">98%</div>
-                  <div className="text-sm text-gray-600">Pass Rate</div>
+                  <div className="text-3xl font-black text-blue-600 mb-1">98%</div>
+                  <div className="text-sm text-gray-600 font-medium">Pass Rate</div>
                 </div>
               </div>
             </div>
@@ -180,8 +188,8 @@ export default function LandingPage() {
                       <CheckCircle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">Lesson Complete!</div>
-                      <div className="text-sm text-gray-600">Great progress today</div>
+                      <div className="font-bold text-gray-900">Lesson Complete!</div>
+                      <div className="text-sm text-gray-600 font-medium">Great progress today</div>
                     </div>
                   </div>
                 </div>
@@ -199,13 +207,13 @@ export default function LandingPage() {
               <Target className="w-4 h-4 mr-2" />
               Why Choose DriverXP
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 tracking-tight">
               The Smart Way to
               <span className="block bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">
                 Learn Driving
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
               Our cutting-edge platform combines traditional driving expertise with modern technology 
               to deliver an unmatched learning experience.
             </p>
@@ -271,15 +279,15 @@ export default function LandingPage() {
                   <div className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <feature.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-black text-gray-900 mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-gray-600 leading-relaxed mb-6 font-medium">
                     {feature.description}
                   </p>
                   <button
                     onClick={() => openWhatsApp(enrollMessage)}
-                    className={`text-${feature.color}-600 hover:text-${feature.color}-700 font-semibold flex items-center group-hover:translate-x-2 transition-transform duration-300`}
+                    className={`text-${feature.color}-600 hover:text-${feature.color}-700 font-bold flex items-center group-hover:translate-x-2 transition-transform duration-300`}
                   >
                     Learn More <ArrowRight className="w-4 h-4 ml-2" />
                   </button>
@@ -298,13 +306,13 @@ export default function LandingPage() {
               <BookOpen className="w-4 h-4 mr-2" />
               Simple Process
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 tracking-tight">
               Get Started in
               <span className="block bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">
                 Three Easy Steps
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
               From enrollment to your first lesson, we've streamlined the entire process 
               to get you behind the wheel as quickly as possible.
             </p>
@@ -356,10 +364,10 @@ export default function LandingPage() {
                       {item.step}
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-2xl font-black text-gray-900 mb-4">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed max-w-sm mx-auto">
+                  <p className="text-gray-600 leading-relaxed max-w-sm mx-auto font-medium">
                     {item.description}
                   </p>
                 </div>
@@ -370,14 +378,14 @@ export default function LandingPage() {
           <div className="text-center">
             <button
               onClick={() => navigate("/login")}
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold text-lg inline-flex items-center"
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold text-lg inline-flex items-center"
             >
               <ArrowRight className="w-5 h-5 mr-2" />
               Begin Your Journey
             </button>
             <button
-              onClick={() => openWhatsApp(questionMessage)}
-              className="ml-4 px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-full hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-semibold text-lg"
+              onClick={() => navigate("/contact")}
+              className="ml-4 px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-full hover:border-blue-600 hover:text-blue-600 transition-all duration-300 font-bold text-lg"
             >
               Have Questions?
             </button>
@@ -395,11 +403,11 @@ export default function LandingPage() {
         </div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight">
             Ready to Transform Your
             <span className="block text-yellow-300">Driving Future?</span>
           </h2>
-          <p className="text-xl text-blue-100 mb-12 leading-relaxed">
+          <p className="text-xl text-blue-100 mb-12 leading-relaxed font-medium">
             Join thousands of successful drivers who chose DriverXP for their journey. 
             Experience the perfect blend of traditional expertise and modern innovation.
           </p>
@@ -407,14 +415,14 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
             <button
               onClick={() => navigate("/login")}
-              className="px-8 py-4 bg-white text-blue-600 rounded-full hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-3 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="px-8 py-4 bg-white text-blue-600 rounded-full hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-3 text-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <Calendar className="w-5 h-5" />
               Book Your First Lesson
             </button>
             <button
-              onClick={() => setShowContactModal(true)}
-              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center gap-3 text-lg font-semibold"
+              onClick={() => navigate("/contact")}
+              className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center gap-3 text-lg font-bold"
             >
               <Phone className="w-5 h-5" />
               Speak to an Expert
@@ -427,8 +435,8 @@ export default function LandingPage() {
                 <Star className="w-6 h-6 text-yellow-800" />
               </div>
               <div className="text-left">
-                <div className="text-2xl font-bold">4.9/5</div>
-                <div className="text-blue-100 text-sm">Student Rating</div>
+                <div className="text-2xl font-black">4.9/5</div>
+                <div className="text-blue-100 text-sm font-medium">Student Rating</div>
               </div>
             </div>
             <div className="flex items-center justify-center gap-3">
@@ -436,8 +444,8 @@ export default function LandingPage() {
                 <Users className="w-6 h-6 text-yellow-800" />
               </div>
               <div className="text-left">
-                <div className="text-2xl font-bold">5,000+</div>
-                <div className="text-blue-100 text-sm">Happy Students</div>
+                <div className="text-2xl font-black">5,000+</div>
+                <div className="text-blue-100 text-sm font-medium">Happy Students</div>
               </div>
             </div>
             <div className="flex items-center justify-center gap-3">
@@ -445,62 +453,13 @@ export default function LandingPage() {
                 <Award className="w-6 h-6 text-yellow-800" />
               </div>
               <div className="text-left">
-                <div className="text-2xl font-bold">Licensed</div>
-                <div className="text-blue-100 text-sm">& Insured</div>
+                <div className="text-2xl font-black">Licensed</div>
+                <div className="text-blue-100 text-sm font-medium">& Insured</div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Contact Modal */}
-      {showContactModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-900">Get in Touch</h3>
-              <button 
-                onClick={() => setShowContactModal(false)}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-              >
-                <X className="h-6 w-6 text-gray-500" />
-              </button>
-            </div>
-            <p className="text-gray-600 mb-8">Ready to start your driving journey? Contact us now!</p>
-            <div className="space-y-4">
-              <a
-                href="tel:+27715095239"
-                className="flex items-center gap-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors group"
-              >
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                  <Phone className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900">Call Now</div>
-                  <div className="text-blue-600">+27 71 509 5239</div>
-                </div>
-                <ArrowRight className="w-5 h-5 text-blue-600 ml-auto group-hover:translate-x-1 transition-transform" />
-              </a>
-              <button
-                onClick={() => {
-                  openWhatsApp(enrollMessage);
-                  setShowContactModal(false);
-                }}
-                className="w-full flex items-center gap-4 p-4 bg-green-50 rounded-xl hover:bg-green-100 transition-colors group"
-              >
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                  <MessageCircle className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="font-semibold text-gray-900">WhatsApp</div>
-                  <div className="text-green-600">+27 71 509 5239</div>
-                </div>
-                <ArrowRight className="w-5 h-5 text-green-600 ml-auto group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       <Footer />
     </div>
