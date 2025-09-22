@@ -102,7 +102,7 @@ export default function ContactPage() {
                 onClick={() => navigate("/login")}
                 className="px-6 py-3 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-bold"
               >
-                Get Started
+                Login
               </button>
             </div>
           </div>
@@ -410,7 +410,7 @@ export default function ContactPage() {
               className="px-8 py-4 bg-white text-blue-600 rounded-full hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-3 text-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <Car className="w-5 h-5" />
-              Book Your First Lesson
+              Login to Book Lessons
             </button>
             <button
               onClick={() => openWhatsApp(enrollMessage)}

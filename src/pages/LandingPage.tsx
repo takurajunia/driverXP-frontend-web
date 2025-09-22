@@ -82,7 +82,7 @@ export default function LandingPage() {
                 onClick={() => navigate("/login")}
                 className="px-6 py-3 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-bold"
               >
-                Get Started
+                Login
               </button>
             </div>
 
@@ -118,7 +118,7 @@ export default function LandingPage() {
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
                 <Zap className="w-4 h-4 mr-2" />
-                South Africa's Most Advanced Driving Platform
+                Professional Driving School Management Platform
               </div>
               
               <h1 className="text-5xl lg:text-7xl font-black text-gray-900 mb-6 leading-tight tracking-tight">
@@ -130,9 +130,9 @@ export default function LandingPage() {
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl font-medium">
-                Experience the future of driving education with our revolutionary platform. 
-                Smart scheduling, expert instructors, and personalized learning paths - all designed 
-                to get you road-ready faster than ever.
+                Streamline your driving education with our comprehensive management platform. 
+                Easy booking, expert instructors, and organized lesson tracking - all designed 
+                to help you become a confident driver.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -194,17 +194,17 @@ export default function LandingPage() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium mb-6">
               <Target className="w-4 h-4 mr-2" />
-              Why Choose DriverXP
+              Platform Features
             </div>
             <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 tracking-tight">
-              The Smart Way to
+              Everything You Need to
               <span className="block bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">
-                Learn Driving
+                Manage Your Lessons
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
-              Our cutting-edge platform combines traditional driving expertise with modern technology 
-              to deliver an unmatched learning experience.
+              Our comprehensive platform makes it easy to book lessons, track progress, and 
+              communicate with instructors for an organized learning experience.
             </p>
           </div>
 
@@ -212,17 +212,17 @@ export default function LandingPage() {
             {[
               {
                 icon: Calendar,
-                title: "Smart Booking System",
+                title: "Easy Lesson Booking",
                 description:
-                  "AI-powered scheduling that finds the perfect lesson slots based on your availability, learning pace, and instructor preferences.",
+                  "Simple online booking system that lets you schedule lessons with available instructors at times that work for you.",
                 color: "blue",
                 gradient: "from-blue-500 to-blue-600",
               },
               {
                 icon: Bell,
-                title: "Real-Time Updates",
+                title: "Booking Management",
                 description:
-                  "Stay connected with instant notifications, live tracking, and seamless communication with your instructor.",
+                  "View all your bookings, reschedule lessons, and keep track of your learning progress in one organized dashboard.",
                 color: "red",
                 gradient: "from-red-500 to-red-600",
               },
@@ -230,15 +230,15 @@ export default function LandingPage() {
                 icon: Clock,
                 title: "Flexible Scheduling",
                 description:
-                  "Life happens. Easily reschedule or modify your lessons with our flexible booking system that adapts to your needs.",
+                  "Choose from available time slots and easily reschedule lessons when needed with our user-friendly interface.",
                 color: "blue",
                 gradient: "from-blue-500 to-blue-600",
               },
               {
                 icon: TrendingUp,
-                title: "Progress Analytics",
+                title: "Progress Tracking",
                 description:
-                  "Track your improvement with detailed analytics, personalized feedback, and milestone celebrations.",
+                  "Keep track of completed lessons, view instructor feedback, and monitor your learning journey.",
                 color: "red",
                 gradient: "from-red-500 to-red-600",
               },
@@ -246,7 +246,7 @@ export default function LandingPage() {
                 icon: Shield,
                 title: "Safety First",
                 description:
-                  "All instructors are fully certified, vehicles are regularly maintained, and safety protocols are strictly followed.",
+                  "All instructors are certified professionals, and our vehicles are regularly maintained for your safety.",
                 color: "blue",
                 gradient: "from-blue-500 to-blue-600",
               },
@@ -254,7 +254,7 @@ export default function LandingPage() {
                 icon: Users,
                 title: "Expert Instructors",
                 description:
-                  "Learn from Sydney's best driving instructors, carefully selected and continuously trained to deliver exceptional results.",
+                  "Learn from experienced, certified driving instructors who are dedicated to helping you become a safe driver.",
                 color: "red",
                 gradient: "from-red-500 to-red-600",
               },
@@ -298,12 +298,12 @@ export default function LandingPage() {
             <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 tracking-tight">
               Get Started in
               <span className="block bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">
-                Three Easy Steps
+                Three Simple Steps
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
-              From enrollment to your first lesson, we've streamlined the entire process 
-              to get you behind the wheel as quickly as possible.
+              From creating your account to booking your first lesson, our simple process 
+              gets you started on your driving journey quickly.
             </p>
           </div>
 
@@ -311,25 +311,25 @@ export default function LandingPage() {
             {[
               {
                 step: "01",
-                title: "Quick Enrollment",
+                title: "Create Account",
                 description:
-                  "Join Sydney Driving School and request your DriverXP account via WhatsApp. Our team will set up your profile within 24 hours.",
+                  "Sign up for your DriverXP account and complete your profile with your contact information and preferences.",
                 icon: Users,
                 color: "blue",
               },
               {
                 step: "02",
-                title: "Smart Matching",
+                title: "Choose Instructor",
                 description:
-                  "Our AI matches you with the perfect instructor based on your location, schedule, learning style, and specific requirements.",
+                  "Browse available instructors, view their profiles, and select the one that best fits your schedule and learning needs.",
                 icon: Target,
                 color: "red",
               },
               {
                 step: "03",
-                title: "Start Learning",
+                title: "Book Your Lesson",
                 description:
-                  "Book your first lesson, receive automated reminders, and begin your journey to becoming a confident, skilled driver.",
+                  "Schedule your first lesson at a convenient time and location, then start your journey to becoming a confident driver.",
                 icon: Car,
                 color: "blue",
               },
@@ -370,7 +370,7 @@ export default function LandingPage() {
               className="px-8 py-4 bg-gradient-to-r from-blue-600 to-red-600 text-white rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold text-lg inline-flex items-center"
             >
               <ArrowRight className="w-5 h-5 mr-2" />
-              Begin Your Journey
+              Login to Start
             </button>
             <button
               onClick={() => navigate("/contact")}
@@ -393,12 +393,12 @@ export default function LandingPage() {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight">
-            Ready to Transform Your
+            Ready to Start Your
             <span className="block text-yellow-300">Driving Future?</span>
           </h2>
           <p className="text-xl text-blue-100 mb-12 leading-relaxed font-medium">
-            Join thousands of successful drivers who chose DriverXP for their journey. 
-            Experience the perfect blend of traditional expertise and modern innovation.
+            Join Sydney Driving School and start your journey to becoming a confident, safe driver 
+            with our experienced instructors and organized learning platform.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
@@ -407,7 +407,7 @@ export default function LandingPage() {
               className="px-8 py-4 bg-white text-blue-600 rounded-full hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-3 text-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <Calendar className="w-5 h-5" />
-              Book Your First Lesson
+              Login to Book Lessons
             </button>
             <button
               onClick={() => navigate("/contact")}
