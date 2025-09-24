@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { authAPI } from "../services/api";
-import { Eye, EyeOff, Car } from "lucide-react";
+import { Eye, EyeOff, Car, MessageCircle } from "lucide-react";
 import logoFull from "/full logo.jpg";
 
 const LoginPage: React.FC = () => {
@@ -169,6 +169,18 @@ const LoginPage: React.FC = () => {
               {isLoading ? "Signing in..." : "Sign In"}
             </button>
           </form>
+
+          {/* Sign Up via WhatsApp */}
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-600 mb-3">Don't have an account?</p>
+            <button
+              onClick={() => openWhatsApp(signupMessage)}
+              className="w-full px-4 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center font-semibold"
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              Sign Up Via WhatsApp
+            </button>
+          </div>
         </div>
       </div>
 

@@ -177,8 +177,8 @@ export default function LandingPage() {
                       <CheckCircle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900">Lesson Complete!</div>
-                      <div className="text-sm text-gray-600 font-medium">Great progress today</div>
+                      <div className="font-bold text-gray-900">Next Lesson Booked!</div>
+                      <div className="text-sm text-gray-600 font-medium">Tuesday at 2:00 PM</div>
                     </div>
                   </div>
                 </div>
