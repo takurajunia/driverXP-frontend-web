@@ -18,6 +18,16 @@ const LoginPage: React.FC = () => {
   const [resetMessage, setResetMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
   const [loading, setLoading] = useState(false);
 
+  // WhatsApp signup configuration
+  const signupMessage = "Hello! I'm interested in joining Sydney Driving School. Please tell me more about the enrollment.";
+  
+  const openWhatsApp = (message: string) => {
+    const phoneNumber = "27715095239"; // +27 71 509 5239 without spaces and plus
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   if (isAuthenticated) {
     return <Navigate to="/dashboard" replace />;
   }
