@@ -46,11 +46,11 @@ const Navigation: React.FC = () => {
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                  <FaCar className="text-white text-xl" />
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                  <FaCar className="text-white text-2xl" />
                 </div>
                 <div>
-                  <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-teal-400 text-xl font-bold">
+                  <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-teal-400 text-2xl font-bold">
                     DriverXP
                   </h1>
                   <p className="text-xs text-gray-500">Sydney Driving School</p>
