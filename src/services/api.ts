@@ -101,6 +101,12 @@ export const authAPI = {
     newPassword: string;
   }): Promise<AxiosResponse<ApiResponse<{ message: string }>>> =>
     api.post("/users/change-password", passwordData),
+
+  forgotPassword: (email: string): Promise<AxiosResponse<ApiResponse<{ message: string }>>> =>
+    api.post('/auth/forgot-password', { email }),
+
+  resetPassword: (token: string, password: string): Promise<AxiosResponse<ApiResponse<{ message: string }>>> =>
+    api.post('/auth/reset-password', { token, password }),
 };
 
 // Users API
